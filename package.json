@@ -1,0 +1,51 @@
+{
+  "name": "czecheck",
+  "version": "0.0.0-development",
+  "description": "",
+  "homepage": "https://github.com/czecheck/czecheck",
+  "bugs": {
+    "url": "https://github.com/czecheck/czecheck/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/czecheck/czecheck.git"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "npm run build",
+    "prebuild": "node prebuild.cjs",
+    "build": "unbuild",
+    "postbuild": "rm -f ./src/index.ts",
+    "clean": "rm -rf ./dist",
+    "test": "jest"
+  },
+  "keywords": [
+    "validate",
+    "validation",
+    "validator",
+    "czech",
+    "czechia",
+    "nin"
+  ],
+  "author": "Michal Valeš <michal.vales@xcd.cz>",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "unbuild": "^1.2.1"
+  }
+}
