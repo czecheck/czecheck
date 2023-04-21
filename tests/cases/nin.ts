@@ -3,14 +3,14 @@ import { Gender, NinData } from '../../src/_types'
 export interface NinTestItem {
   description: string,
   input: string,
-  expectedOutput?: NinData,
+  ninData?: NinData,
 }
 
 export const generalValid: NinTestItem[] = [
   {
     description: 'female has addition of 50 to month',
     input: '646007/6832',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Female,
       dateOfBirth: new Date(1964, 9, 7),
     },
@@ -18,7 +18,7 @@ export const generalValid: NinTestItem[] = [
   {
     description: 'control digit 0 when modulo 11 is 0',
     input: '061216/0120',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(2006, 11, 16),
     },
@@ -26,7 +26,7 @@ export const generalValid: NinTestItem[] = [
   {
     description: 'control digit 0 when modulo 11 is 10',
     input: '190915/7790',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(2019, 8, 15),
     },
@@ -68,7 +68,7 @@ export const inputFormats: NinTestItem[] = [
   {
     description: 'with slash',
     input: '970126/6894',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(1997, 0, 26),
     },
@@ -76,7 +76,7 @@ export const inputFormats: NinTestItem[] = [
   {
     description: 'without slash',
     input: '9701266894',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(1997, 0, 26),
     },
@@ -84,7 +84,7 @@ export const inputFormats: NinTestItem[] = [
   {
     description: 'with whitespaces and withoutslash',
     input: '97 01 26 68 94',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(1997, 0, 26),
     },
@@ -92,7 +92,7 @@ export const inputFormats: NinTestItem[] = [
   {
     description: 'with whitespaces and slash',
     input: '   97 01 26  / 6894   ',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(1997, 0, 26),
     },
@@ -107,7 +107,7 @@ export const lengthThresholds: NinTestItem[] = [
   {
     description: 'last day of short variant',
     input: '531231/359',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(1953, 11, 31),
     },
@@ -115,7 +115,7 @@ export const lengthThresholds: NinTestItem[] = [
   {
     description: 'first day of long variant',
     input: '545101/7055',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Female,
       dateOfBirth: new Date(1954, 0, 1),
     },
@@ -127,7 +127,7 @@ export const lengthThresholds: NinTestItem[] = [
   {
     description: 'long variant for year 53 must overflow to 2k',
     input: '536231/9798',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Female,
       dateOfBirth: new Date(2053, 11, 31),
     },
@@ -135,7 +135,7 @@ export const lengthThresholds: NinTestItem[] = [
   {
     description: 'long variant for year 00 must overflow to 2k',
     input: '000101/4156',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(2000, 0, 1),
     },
@@ -154,7 +154,7 @@ export const overflowThresholds: NinTestItem[] = [
   {
     description: 'male, first day of allowed overflow',
     input: '042101/3637',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Male,
       dateOfBirth: new Date(2004, 0, 1),
     },
@@ -162,7 +162,7 @@ export const overflowThresholds: NinTestItem[] = [
   {
     description: 'female, first day of allowed overflow',
     input: '047101/3631',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Female,
       dateOfBirth: new Date(2004, 0, 1),
     },
@@ -170,7 +170,7 @@ export const overflowThresholds: NinTestItem[] = [
   {
     description: 'fmale, highest possible month-segment value',
     input: '228231/3924',
-    expectedOutput: {
+    ninData: {
       gender: Gender.Female,
       dateOfBirth: new Date(2022, 11, 31),
     },
