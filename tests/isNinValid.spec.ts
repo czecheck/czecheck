@@ -1,4 +1,4 @@
-import extractNin from '../src/extractNin'
+import isNinValid from '../src/isNinValid'
 import {
   generalValid,
   generalInvalid,
@@ -11,18 +11,7 @@ import {
 const applyTestCases = (items: NinTestItem[]): void => items.forEach(
   ({ description, input, ninData }) => it(
     description,
-    () => {
-      const result = extractNin(input)
-
-      if (!ninData) {
-        expect(result).toBeUndefined()
-        return
-      }
-
-      expect(result).not.toBeUndefined()
-      expect(result?.gender).toStrictEqual(ninData.gender)
-      expect(result?.dateOfBirth.toDateString()).toStrictEqual(ninData.dateOfBirth.toDateString())
-    },
+    () => expect(isNinValid(input)).toStrictEqual(!!ninData),
   ),
 )
 
