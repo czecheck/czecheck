@@ -34,6 +34,34 @@ export const generalValid: NinTestItem[] = [
 ]
 
 export const generalInvalid: NinTestItem[] = [
+  {
+    description: 'too long',
+    input: '975524/51260',
+  },
+  {
+    description: 'too short',
+    input: '975524/51',
+  },
+  {
+    description: 'wrong modulo control digit',
+    input: '975524/5127',
+  },
+  {
+    description: '1997-05-32 is not valid date',
+    input: '975532/5129',
+  },
+  {
+    description: '1997-04-31 is not valid date',
+    input: '975431/5120',
+  },
+  {
+    description: '1997-02-30 is not valid date',
+    input: '975230/5123',
+  },
+  {
+    description: '1997-13-01 is not valid date',
+    input: '971301/5125',
+  },
 ]
 
 export const inputFormats: NinTestItem[] = [
@@ -110,6 +138,41 @@ export const lengthThresholds: NinTestItem[] = [
     expectedOutput: {
       gender: Gender.Male,
       dateOfBirth: new Date(2000, 0, 1),
+    },
+  },
+]
+
+export const overflowThresholds: NinTestItem[] = [
+  {
+    description: 'male, overflow prior 2004 not allowed',
+    input: '033231/3630',
+  },
+  {
+    description: 'female, overflow prior 2004 not allowed',
+    input: '038231/3635',
+  },
+  {
+    description: 'male, first day of allowed overflow',
+    input: '042101/3637',
+    expectedOutput: {
+      gender: Gender.Male,
+      dateOfBirth: new Date(2004, 0, 1),
+    },
+  },
+  {
+    description: 'female, first day of allowed overflow',
+    input: '047101/3631',
+    expectedOutput: {
+      gender: Gender.Female,
+      dateOfBirth: new Date(2004, 0, 1),
+    },
+  },
+  {
+    description: 'fmale, highest possible month-segment value',
+    input: '228231/3924',
+    expectedOutput: {
+      gender: Gender.Female,
+      dateOfBirth: new Date(2022, 11, 31),
     },
   },
 ]
