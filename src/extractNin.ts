@@ -1,13 +1,10 @@
-import { Gender, NinData } from './_types'
+import { Gender, type NinData } from './_types'
 
 const FEMALE_ADDITION = 50
 const OVERFLOW_ADDITION = 20
 const OVERFLOW_POSSIBLE_SINCE = 2004
 const LONG_SINCE = 1954
-const NIN_LENGTHS = {
-  SHORT: 9,
-  LONG: 10,
-}
+const NIN_LENGTHS = { SHORT: 9, LONG: 10 }
 
 const extractNumber = (nin: string, start: number, end: number): number => parseInt(nin.slice(start, end))
 
@@ -62,9 +59,6 @@ export default (nin: string): NinData | undefined => {
   if (dateOfBirth.getDate() !== day || dateOfBirth.getMonth() !== monthIndex) {
     return
   }
-  
-  return {
-    gender,
-    dateOfBirth,
-  }
+
+  return { gender, dateOfBirth }
 }

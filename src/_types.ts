@@ -4,6 +4,6 @@ export enum Gender {
 }
 
 export interface NinData {
-  gender: Gender,
-  dateOfBirth: Date,
+  gender: Gender
+  dateOfBirth: Date
 }

@@ -2,6 +2,16 @@
   "name": "czecheck",
   "version": "0.0.0-development",
   "description": "",
+  "author": "Michal Valeš <michal.vales@xcd.cz>",
+  "license": "CC0-1.0",
+  "keywords": [
+    "validate",
+    "validation",
+    "validator",
+    "czech",
+    "czechia",
+    "nin"
+  ],
   "homepage": "https://github.com/czecheck/czecheck",
   "bugs": {
     "url": "https://github.com/czecheck/czecheck/issues"
@@ -26,26 +36,23 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "npm run build",
+    "lint": "eslint .",
+    "test": "jest",
+    "clean": "rimraf dist",
     "prebuild": "node prebuild.cjs",
     "build": "unbuild",
-    "postbuild": "rm -f ./src/index.ts",
-    "clean": "rm -rf ./dist",
-    "test": "jest"
+    "postbuild": "rimraf src/index.ts",
+    "prepack": "npm run build"
   },
-  "keywords": [
-    "validate",
-    "validation",
-    "validator",
-    "czech",
-    "czechia",
-    "nin"
-  ],
-  "author": "Michal Valeš <michal.vales@xcd.cz>",
-  "license": "CC0-1.0",
   "devDependencies": {
     "@types/jest": "^29.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.39.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "rimraf": "^5.0.0",
     "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4",
     "unbuild": "^1.2.1"
   }
 }
