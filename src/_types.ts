@@ -1,6 +1,6 @@
 export enum Gender {
   Male = 'M',
-  Female = 'F',
+  Female = 'F'
 }
 
 export interface NinData {
