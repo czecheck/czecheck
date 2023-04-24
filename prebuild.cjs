@@ -20,7 +20,11 @@ fs.readdir(srcDirPath, (err, files) => {
       return content
     }
 
-    return content + `export { default as ${fileName} } from './${fileName}.js'` + '\n'
+    return (
+      content +
+      `export { default as ${fileName} } from './${fileName}.js'` +
+      '\n'
+    )
   }, '')
 
   fs.writeFile(path.join(srcDirPath, 'index.ts'), indexContent, (err) => {

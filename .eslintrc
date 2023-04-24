@@ -1,11 +1,12 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": "standard-with-typescript",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": ["standard-with-typescript", "prettier"],
   "parserOptions": {
     "project": "tsconfig.json"
+  },
+  "rules": {
+    "prettier/prettier": 2
   }
 }

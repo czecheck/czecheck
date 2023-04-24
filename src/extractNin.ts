@@ -6,9 +6,11 @@ const OVERFLOW_POSSIBLE_SINCE = 2004
 const LONG_SINCE = 1954
 const NIN_LENGTHS = { SHORT: 9, LONG: 10 }
 
-const extractNumber = (nin: string, start: number, end: number): number => parseInt(nin.slice(start, end))
+const extractNumber = (nin: string, start: number, end: number): number =>
+  parseInt(nin.slice(start, end))
 
-const testModulo = (nin: string): boolean => `${extractNumber(nin, 0, 9) % 11}`.slice(-1) === nin[9]
+const testModulo = (nin: string): boolean =>
+  `${extractNumber(nin, 0, 9) % 11}`.slice(-1) === nin[9]
 
 export default (nin: string): NinData | undefined => {
   nin = nin.replace(/[\s/]+/g, '')

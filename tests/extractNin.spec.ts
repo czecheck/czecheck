@@ -20,7 +20,9 @@ const applyTestCases = (items: NinTestItem[]): void => {
 
       expect(result).not.toBeUndefined()
       expect(result?.gender).toStrictEqual(ninData.gender)
-      expect(result?.dateOfBirth.toDateString()).toStrictEqual(ninData.dateOfBirth.toDateString())
+      expect(result?.dateOfBirth.toDateString()).toStrictEqual(
+        ninData.dateOfBirth.toDateString()
+      )
     })
   })
 }

@@ -121,7 +121,7 @@ export const lengthThresholds: NinTestItem[] = [
     }
   },
   {
-    description: 'short variant not allowed after first day of long variant (included)',
+    description: 'short variant not allowed after first day of long variant',
     input: '545101/705'
   },
   {
